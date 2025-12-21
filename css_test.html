@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" cantent="width=device-width, initial-scale=1.0">
+    <title>Pseudo Elements</title>
+    <style>
+      :root {
+        --clr-gray300: #E0E0E0;
+        --clr-primary-light: aqua;
+        --clr-primary: blue;
+      }
+      body {
+        background-color: #000099;
+      }
+
+      h1 {
+        position: relative;
+          width: max-content;
+      }
+      h1::after {
+        content: 'holle';
+          background: linear-gradient(to right, blue, red);
+          height: 4px;
+          width: 100%;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          border-radius: 10px;
+          transition: 100ms;
+      }
+      h1:hover::after {
+        width: 0;
+      }
+
+      .loading1 {
+          height: 50px;
+          width: 50px;
+          border: 6px solid aqua;
+          border-radius: 4px;
+
+          box-shadow: 0 0 8px aqua, 0 0 8px aqua inset;
+
+          position: absolute;
+          top: 12%;
+          left: 92%;
+          translate: -50% -50%;
+
+          animation: 2s loading ease-in-out infinite;
+        }
+      @Keyframes loading1 {
+        0% {
+          transform: rotateX(0) rotateY(0) rotateZ(0);
+        }
+        33% {
+          transform: rotateX(180deg) rotateY(0) rotateZ(0);
+        }
+        67% {
+          transform: rotateX(180deg) rotateY(180deg) rotateZ(0);
+        }
+        100% {
+          transform: rotateX(180deg) rotateY(180deg) rotateZ(180deg);
+        }
+      }
+      .loading {
+        height: 50px;
+        width: 50px;
+        border: 6px solid aqua;
+        border-radius: 4px;
+
+        box-shadow: 0 0 8px aqua, 0 0 8px aqua inset;
+
+        position: absolute;
+        top: 10%;
+        left: 90%;
+        translate: -50% -50%;
+
+        animation: 2s loading ease-in-out infinite;
+      }
+      @Keyframes loading {
+        0% {
+          transform: rotateX(0) rotateY(0) rotateZ(0);
+        }
+        33% {
+          transform: rotateX(180deg) rotateY(0) rotateZ(0);
+        }
+        67% {
+          transform: rotateX(180deg) rotateY(180deg) rotateZ(0);
+        }
+        100% {
+          transform: rotateX(180deg) rotateY(180deg) rotateZ(180deg);
+        }
+      }
+
+      .form {
+        position: relative; 
+        width: 300px; 
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      .form__input {
+        width: 100%;
+        font-family: inherit;
+        font-size: inherit;
+        padding: 0.8em;
+        background: white;
+        color: white;
+        border: 2px solid var(--clr-gray300);
+        border-radius: 0.5rem;
+        outline: none;
+      }
+      .form__input:hover {
+        border-color: var(--clr-primary-light);
+      }
+      .form__input:focus {
+        border-color: var(--clr-primary);
+      }
+
+      .form_label {
+        color: white;
+        position: absolute;
+        top: 0.8em;
+        left: 1em;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <form class="form">
+        <input type="email" id="email" class="form__input">
+          <label for="email" class="form__label">
+            Email
+          </label>
+      </form>
+    <h1>Fancy Heading</h1>
+    <div class = "loading"></div>
+    <div class = "loading1"></div>
+
+  </body>
+</html>
